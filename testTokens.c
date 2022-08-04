@@ -35,29 +35,23 @@ char **tokens(char *text)
 	{
 		words[i] = strtok(NULL, delim);
 	}
+	free(words);
 
 	return (words);
 }
 
 int main(void)
 {
-	char text[] = "something here is";
-	char **words;
+	char text[] = "something is here";
+	char *words;
 	char *delim = " ";
-	const char *delim = " ";
-	int i;
-	int count = 1;
 
-	for (i = 0; text[i] != '\0'; i++)
+	words = strtok(text, delim);
+
+	while (words)
 	{
-		count++;
-	}
-
-	words = tokens(text);
-
-	for (i = 0; i < count; i++)
-	{
-		printf("argument %i: %s\n", i, words[i]);
+		printf("arguments: %s\n", words);
+		words = strtok(NULL, delim);
 	}
 
 	return (0);
