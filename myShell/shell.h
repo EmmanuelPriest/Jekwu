@@ -236,4 +236,8 @@ void aux_help_cd(void);
 /* getHelp.c */
 int getHelp(data_shell *datash);
 
+/* main.c */
+int main(int ac, char **av);
+void setData(data_shell *datash, char **av);
+void freeData(data_shell *datash);
 #endif
