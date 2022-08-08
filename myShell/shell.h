@@ -99,7 +99,7 @@ typedef struct inbuilt_s
 } inbuilt_t;
 
 /* lists.c */
-sep_list *add_sep_node_end(sep_list **head, char sep);
+sep_list *add_sep_node_end(sep_list **head, char separ);
 void free_sep_list(sep_list **head);
 line_list *add_line_node_end(line_list **head, char *line);
 void free_line_list(line_list **head);
