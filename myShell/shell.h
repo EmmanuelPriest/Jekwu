@@ -108,7 +108,7 @@ void free_line_list(line_list **head);
 r_var *add_rvar_node(r_var **head, int lengthVar, char *var, int lengthVal);
 void free_rvar_list(r_var **head);
 
-/* string functions */
+/* string.c functions */
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
@@ -120,21 +120,21 @@ void _memcpy(void *newptr, const void *ptr, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size);
 
-/* string2.c */
+/* string1.c */
 char *_strdup(const char *s);
 int _strlen(const char *s);
 int cmp_chars(char str[], const char *delim);
 char *_strtok(char str[], const char *delim);
 int _isdigit(const char *s);
 
-/* string3.c */
+/* string2.c */
 void rev_string(char *s);
 
 /* syntaxError.c */
-int repeatedChar(char *input, int n);
-int error_sep_op(char *input, int n, char last);
+int repeatedChar(char *input, int index);
+int error_sep_op(char *input, int index, char last);
 int firstChar(char *input, int *n);
-void printSyntaxError(data_shell *datash, char *input, int n, int bool);
+void printSyntaxError(data_shell *datash, char *input, int index, int bool);
 int checkSyntaxError(data_shell *datash, char *input);
 
 /* sh_loop.c */
@@ -161,17 +161,18 @@ char *repVar(char *input, data_shell *datash);
 void bringLine(char **lineptr, size_t *n, char *buffer, size_t m);
 ssize_t getLine(char **lineptr, size_t *n, FILE *stream);
 
-/* executeLine */
+/* executeLine.c */
 int executeLine(data_shell *datash);
 
 /* executeCmd.c */
-int is_cdir(char *path, int *n);
+int is_cdir(char *path, int *index);
 char *_which(char *cmd, char **_environ);
 int _executable(data_shell *datash);
 int checkErrorCmd(char *dir, data_shell *datash);
 int executeCmd(data_shell *datash);
 
 /* _env1.c */
+int cmp_env_name(const char *nenv, const char *name)
 char *_getenv(const char *name, char **_environ);
 int _env(data_shell *datash);
 
@@ -190,7 +191,7 @@ void cd_home(data_shell *datash);
 /* cd_shell.c */
 int cd_shell(data_shell *datash);
 
-/* getInbuilt */
+/* getInbuilt.c */
 int (*getInbuilt(char *cmd))(data_shell *datash);
 
 /* _exit.c */
@@ -220,14 +221,14 @@ int getError(data_shell *datash, int eval);
 /* get_sigint.c */
 void get_sigint(int sig);
 
-/* aux_help.c */
+/* _help.c */
 void aux_help_env(void);
 void aux_help_setenv(void);
 void aux_help_unsetenv(void);
 void aux_help_general(void);
 void aux_help_exit(void);
 
-/* aux_help2.c */
+/* _help2.c */
 void aux_help(void);
 void aux_help_alias(void);
 void aux_help_cd(void);
