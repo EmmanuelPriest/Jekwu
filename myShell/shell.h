@@ -138,7 +138,7 @@ void printSyntaxError(data_shell *datash, char *input, int index, int bool);
 int checkSyntaxError(data_shell *datash, char *input);
 
 /* sh_loop.c */
-char *withoutComment(char *in);
+char *withoutComment(char *input);
 void shellLoop(data_shell *datash);
 
 /* readLine.c */
@@ -152,8 +152,8 @@ int splitCmd(data_shell *datash, char *input);
 char **splitLine(char *input);
 
 /* repVar.c */
-void check_env(r_var **h, char *in, data_shell *data);
-int checkVars(r_var **h, char *in, char *st, data_shell *data);
+void check_env(r_var **head, char *input, data_shell *data);
+int checkVars(r_var **head, char *input, char *st, data_shell *data);
 char *replacedInput(r_var **head, char *input, char *new_input, int newLength);
 char *repVar(char *input, data_shell *datash);
 
