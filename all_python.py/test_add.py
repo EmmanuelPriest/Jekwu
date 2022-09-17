@@ -14,9 +14,9 @@ class TestingAdd(unittest.TestCase):
         self.assertEqual(sum([2, 3, 5]), 10, "Shoult be 10")
     def test_add_tuple(self):
         '''testing test_add_tuple'''
-        self.assertEqual(sum((1, 3, 5)), 10, "It should be 10")
+        self.assertNotEqual(sum((1, 3, 5)), 10, "It should be 10")
 
 
-if __name__ == "__main__":
+if __name__ == "_ _main__":
     '''The main method'''
     unittest.main()

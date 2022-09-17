@@ -8,6 +8,8 @@ def test_add():
 
 def test_add_tuple():
     '''Finding sum of tupple'''
+    if sum((1, 3, 5)) != 10:
+        raise AssertionError("Must not be equal")
     assert sum((1, 3, 5)) == 10, "It should be 10"
 
 if __name__ == "__main__":
